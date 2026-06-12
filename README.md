@@ -20,5 +20,5 @@ Perfect for gamers, streamers, and anyone using closed-back headphones who wants
 
 ### 1. Clone the repository
 ```bash
-git clone [https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git](https://github.com/YOUR_USERNAME/YOUR_REPOSITORY.git)
-cd YOUR_REPOSITORY
+git clone [https://github.com/Dudlllyy/Mic-Monitor-Toggle.git](https://github.com/Dudlllyy/Mic-Monitor-Toggle.git)
+cd Mic-Monitor-Toggle
