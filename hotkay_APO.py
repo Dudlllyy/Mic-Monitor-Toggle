@@ -3,10 +3,10 @@ import os
 import time
 import keyboard
 
-# Правильный путь (проверь, чтобы папка называлась именно так!)
+
 CONFIG_DIR = r"E:\Eqalizer APO\config"
 ACTIVE_FILE = os.path.join(CONFIG_DIR, "config.txt")
-FLAT_FILE = os.path.join(CONFIG_DIR, "flat.txt")  # Файл для отключения эффектов
+FLAT_FILE = os.path.join(CONFIG_DIR, "flat.txt")
 
 # Переменная для памяти (запоминает, какой файл сейчас включен)
 current_effect = None
