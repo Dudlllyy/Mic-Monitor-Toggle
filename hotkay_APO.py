@@ -16,7 +16,7 @@ def activate_effect(preset_name):
     global current_effect
 
     try:
-        # Если мы нажали кнопку эффекта, который УЖЕ включен -> выключаем его
+
         if current_effect == preset_name:
             if not os.path.exists(FLAT_FILE):
                 print(f"Ошибка: Чистый файл {FLAT_FILE} не найден!")
@@ -26,7 +26,7 @@ def activate_effect(preset_name):
             print("--- Все эффекты ВЫКЛЮЧЕНЫ (чистый звук) ---")
             return
 
-        # Иначе -> включаем выбранный эффект
+
         effect_path = os.path.join(CONFIG_DIR, preset_name)
         if not os.path.exists(effect_path):
             print(f"Ошибка: Файл пресета {preset_name} не найден!")
