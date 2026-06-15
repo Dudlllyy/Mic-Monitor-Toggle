@@ -8,7 +8,7 @@ CONFIG_DIR = r"E:\Eqalizer APO\config"
 ACTIVE_FILE = os.path.join(CONFIG_DIR, "config.txt")
 FLAT_FILE = os.path.join(CONFIG_DIR, "flat.txt")
 
-# Переменная для памяти (запоминает, какой файл сейчас включен)
+
 current_effect = None
 
 
