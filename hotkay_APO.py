@@ -51,14 +51,14 @@ def main():
     print("Alt+3 -> Включить/Выключить autotune.txt")
     print("Alt+0 -> Принудительно выключить всё")
 
-    # Привязываем каждый файл к своей кнопке (используем Alt, чтобы не мешало играть)
+
     keyboard.add_hotkey("alt+1", activate_effect, args=["123.txt"])
     keyboard.add_hotkey("alt+2", activate_effect, args=["213.txt"])
     keyboard.add_hotkey("alt+3", activate_effect, args=["avtotun.txt"])
     keyboard.add_hotkey("alt+4", activate_effect, args=["3333.txt"])
     keyboard.add_hotkey("alt+5", activate_effect, args=["4444.txt"])
 
-    # Отдельная кнопка для гарантийного выключения любых эффектов
+
     keyboard.add_hotkey("alt+0", activate_effect, args=["flat.txt"])
 
     while True:
