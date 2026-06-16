@@ -3,7 +3,6 @@ import keyboard
 import customtkinter as ctk
 import sys
 
-# --- НАСТРОЙКИ ---
 INPUT_DEVICE = 9
 OUTPUT_DEVICE = 8
 BLOCKSIZE = 128
@@ -14,7 +13,7 @@ is_listening = False
 
 
 def audio_callback(indata, outdata, frames, time, status):
-    # Убрал print(status), чтобы ошибки буфера не забивали память и не вешали программу
+
     if is_listening:
         outdata[:] = indata
     else:
@@ -38,14 +37,13 @@ class MicMonitorApp(ctk.CTk):
                                         fg_color="#1f538d", hover_color="#14375e")
         self.toggle_btn.pack(pady=10)
 
-        # Переменные для защиты от сбоев
         self.hotkey_pressed_before = False
         self.stream = None
 
-        # Запускаем звук
+
         self.start_stream()
 
-        # Запускаем безопасные циклы проверки (вместо опасных глобальных хуков)
+
         self.check_hotkey()
         self.check_audio_watchdog()
 
@@ -85,17 +83,16 @@ class MicMonitorApp(ctk.CTk):
         try:
             is_pressed = keyboard.is_pressed(HOTKEY)
 
-            # Если кнопка нажата СЕЙЧАС, но не была нажата 50мс назад (защита от залипания)
+
             if is_pressed and not self.hotkey_pressed_before:
                 self.toggle_state()
                 self.hotkey_pressed_before = True
-            # Если кнопку отпустили
+
             elif not is_pressed:
                 self.hotkey_pressed_before = False
         except:
-            pass  # Игнорируем случайные системные ошибки клавиатуры
+            pass  
 
-        # Запускаем эту же функцию снова через 50 мс
         self.after(50, self.check_hotkey)
 
     def check_audio_watchdog(self):
