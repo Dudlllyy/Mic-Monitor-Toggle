@@ -23,7 +23,7 @@ def activate_effect(preset_name):
                 return
             shutil.copyfile(FLAT_FILE, ACTIVE_FILE)
             current_effect = None
-            print("--- Все эффекты ВЫКЛЮЧЕНЫ (чистый звук) ---")
+            print("--- ALL Eff OFF  ---")
             return
 
 
@@ -34,7 +34,7 @@ def activate_effect(preset_name):
 
         shutil.copyfile(effect_path, ACTIVE_FILE)
         current_effect = preset_name
-        print(f"+++ ВКЛЮЧЕН эффект: {preset_name} +++")
+        print(f"+++ Eff ON: {preset_name} +++")
 
     except PermissionError:
         print("Ошибка доступа! Запустите скрипт от имени Администратора.")
@@ -44,12 +44,12 @@ def activate_effect(preset_name):
 
 def main():
     print("Мульти-переключатель запущен!")
-    print("Alt+1 -> Включить/Выключить 123.txt")
-    print("Alt+2 -> Включить/Выключить 213.txt")
-    print("Alt+2 -> Включить/Выключить 3333.txt")
-    print("Alt+2 -> Включить/Выключить 4444.txt")
-    print("Alt+3 -> Включить/Выключить autotune.txt")
-    print("Alt+0 -> Принудительно выключить всё")
+    print("Alt+1 -> ON/OFF 123.txt")
+    print("Alt+2 -> ON/OFF 213.txt")
+    print("Alt+2 -> ON/OFF 3333.txt")
+    print("Alt+2 -> ON/OFF 4444.txt")
+    print("Alt+3 -> ON/OFF autotune.txt")
+    print("Alt+0 -> ALL OFF")
 
 
     keyboard.add_hotkey("alt+1", activate_effect, args=["123.txt"])
