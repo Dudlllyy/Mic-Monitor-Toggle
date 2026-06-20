@@ -29,10 +29,10 @@ class MicMonitorApp(ctk.CTk):
         self.resizable(False, False)
         ctk.set_appearance_mode("dark")
 
-        self.status_label = ctk.CTkLabel(self, text="Звук ВЫКЛЮЧЕН", font=("Arial", 16, "bold"), text_color="gray")
+        self.status_label = ctk.CTkLabel(self, text="Sound OFF", font=("Arial", 16, "bold"), text_color="gray")
         self.status_label.pack(pady=(20, 10))
 
-        self.toggle_btn = ctk.CTkButton(self, text=f"Включить (или {HOTKEY.upper()})",
+        self.toggle_btn = ctk.CTkButton(self, text=f"On (или {HOTKEY.upper()})",
                                         command=self.toggle_state,
                                         fg_color="#1f538d", hover_color="#14375e")
         self.toggle_btn.pack(pady=10)
@@ -70,16 +70,16 @@ class MicMonitorApp(ctk.CTk):
         is_listening = not is_listening
 
         if is_listening:
-            self.status_label.configure(text="Звук ВКЛЮЧЕН", text_color="#2ecc71")
+            self.status_label.configure(text="Sound ON", text_color="#2ecc71")
             self.toggle_btn.configure(text=f"Выключить (или {HOTKEY.upper()})", fg_color="#c0392b",
                                       hover_color="#922b21")
         else:
-            self.status_label.configure(text="Звук ВЫКЛЮЧЕН", text_color="gray")
+            self.status_label.configure(text="Sound OFF", text_color="gray")
             self.toggle_btn.configure(text=f"Включить (или {HOTKEY.upper()})", fg_color="#1f538d",
                                       hover_color="#14375e")
 
     def check_hotkey(self):
-        """Безопасный опрос клавиатуры каждые 50 миллисекунд"""
+
         try:
             is_pressed = keyboard.is_pressed(HOTKEY)
 
@@ -96,7 +96,7 @@ class MicMonitorApp(ctk.CTk):
         self.after(50, self.check_hotkey)
 
     def check_audio_watchdog(self):
-        """Сторожевой пес: проверяет жив ли звук, каждые 2 секунды"""
+
         if self.stream is None or not self.stream.active:
             print("Обнаружено падение аудиопотока. Перезапуск...")
             self.start_stream()
